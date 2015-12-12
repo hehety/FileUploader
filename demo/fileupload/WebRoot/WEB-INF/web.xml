@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>	
+  
+  
+  <!-- 文件上传地址 -->
+  <servlet>
+  	<servlet-name>uploader</servlet-name>
+  	<servlet-class>com.demo.servlet.Uploader</servlet-class>
+  </servlet>
+  <!-- 上传状态获取地址 -->
+  <servlet>
+  	<servlet-name>uploaderlistener</servlet-name>
+  	<servlet-class>com.hty.util.fileuploader.FetchUploadProgress</servlet-class>
+  </servlet>
+  <!-- 创建文件上传会话地址 -->
+  <servlet>
+  	<servlet-name>sab</servlet-name>
+  	<servlet-class>com.hty.util.fileuploader.SessionUploadAttributeBuilder</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>sab</servlet-name>
+  	<url-pattern>/sab</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>uploaderlistener</servlet-name>
+  	<url-pattern>/uploaderlistener</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>uploader</servlet-name>
+  	<url-pattern>/uploader</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

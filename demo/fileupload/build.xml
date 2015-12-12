@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ejbweb">
+	<property name="web.dir" value="${basedir}\WebRoot"/>
+	<property environment="env"/>
+	<property name="jboss.home" value="${env.JBOSS_HOME}"/>
+	<property name="jboss.server.config" value="default"/>
+	<property name="build.dir" value="${basedir}\build"/>
+	
+	<path id="build.classpath">
+		<fileset dir="${jboss.home}\client">
+			<include name="*.jar"/>
+		</fileset>
+		<pathelement location="${build.dir}"/>
+	</path>
+	
+	<target name="prepare">
+		<delete dir="${build.dir}"/>
+		<mkdir dir="${build.dir}"/>
+	</target>
+	
+	<target name="ejbjar" description="打包ejb包">
+		<war destfile="${basedir}\${ant.project.name}.war">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</war>
+	</target>
+	
+	<target name="deploy" depends="ejbjar" description="发布ejb包" >
+		<copy file="${basedir}\${ant.project.name}.war" todir="${jboss.home}\server\${jboss.server.config}\deploy"/>
+	</target>
+	
+	<target name="undeploy" description="删除ejb包">
+		<delete file="${jboss.home}\server\${jboss.server.config}\deploy\${ant.project.name}.war"/>
+	</target>
+</project>

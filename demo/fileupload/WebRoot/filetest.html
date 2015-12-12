@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>filetest.html</title>
+	<meta charset="UTF-8">
+	
+	
+	<!-- 使用fileupload必须引入的文件 -->
+	<link rel="stylesheet" type="text/css" href="fileupload.css">
+    <script type="text/javascript" src="jquery.1.11.0.js"></script>
+	<script src="fileupload.js" charset="gb2312"></script>
+	<!-- 使用fileupload必须引入的文件 ---->
+	
+  </head>
+  <body style="font-family:微软雅黑">
+	<br>
+	<br>
+	<!-- fileupload的HTML模板 -->
+	<!-- 建议把文本字段放在前面，因为为本参数大多数决定文件的存放位置 -->
+	<form action="uploadFile.up" id="myform" method="post" 
+    	ENCTYPE="multipart/form-data" target="hidden_frame">  
+		<span class="fade_upload_btn">  
+			<input type="hidden" name="content" value="1234567890qrstuvwxyz12345看了可来看是单卡三的爱上了大理石打雷闪电kasdkja看了\r\n可是你的来看是单卡三阿斯兰看到那里是阿萨德米拉什么的卡没事的了吗老师肯定玛卡洛斯大梅沙。、。，、。12/312978945912-03！@#￥%……什么的卡没事的了吗老师肯定玛卡洛斯大梅沙。、。，、。12/312978945912-03！@#￥%……\r\n什么的卡没事的了吗老师肯定玛卡洛斯大梅沙。、。，、。12/312978945912-03！@#￥%……什么的卡没事的了吗老师肯定玛卡洛斯大梅沙。、。，、。12/312978945912-03！@#￥%……\r\n&*（）——
+			">
+			<input type="hidden" name="content" value="jkasdjkaJkajsdkjjasjkdnajk卡萨丁就卡死的">
+			<input type="file" name="file"  id="upfiles" class="_fileupload_fileinput"  multiple="multiple">  
+			<a href="javascript:;" class="upload_link">上传</a> 
+		</span> 
+		 <iframe name="hidden_frame" id="hidden_frame" style="display:none" src=""></iframe>
+	</form>
+	<br><br>
+	<!-- 显示上传进度 -->
+	<ul id="uplist" class="_fileupload_uploadlist">
+		<!-- <li>
+			<p>显示上传文件名</p>
+			显示上传进度条
+			<div class="progressWrapper">
+				<div class="progressValue"></div>
+			</div>
+		</li> -->
+	</ul>
+	<!-- fileupload的HTML模板 -->
+	
+	
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			/* 为fileupload文件表单注册事件 */
+			/* 为fileupload文件表单注册事件 */
+			var fileinput = document.getElementById("upfiles");//文件按钮
+			var progress = document.getElementById("uplist");//文件上传进度列表容器
+			fileupload(fileinput, progress, "uploader", "uploaderlistener","sab");
+			
+		});
+		
+	</script>
+  </body>
+</html>
